@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Fluoride Treatment",
+    "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/8rVj52G/fluoride.png"
+  },
+
+  {
+    "id": 2,
+    "name": "Cavity Filling",
+    "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/ZGB1HQx/cavity.png"
+  },
+
+  {
+    "id": 3,
+    "name": "Teeth Whitening",
+    "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/Cn2hZS8/whitening.png"
+  }
+]
