@@ -1,0 +1,23 @@
+[
+  {
+    "_id": 1,
+    "author": "Sakib",
+    "location": "Dhaka",
+    "review": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/m0TYjLs/people1.png"
+  },
+  {
+    "_id": 2,
+    "author": "Tamim",
+    "location": "Dhaka",
+    "review": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/L1Y3dRz/people2.png"
+  },
+  {
+    "_id": 3,
+    "author": "Masrafi",
+    "location": "Dhaka",
+    "review": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+    "img": "https://i.ibb.co/d0JZgcB/people3.png"
+  }
+]

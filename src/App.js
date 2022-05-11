@@ -6,12 +6,13 @@ import Navbar from "./components/Shared/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App mx-auto lg:px-12">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
       </Routes>
+      {/* <Footer /> */}
     </div>
   );
 }
