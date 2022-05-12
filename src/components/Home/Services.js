@@ -7,8 +7,10 @@ const Services = () => {
   //   console.log(useServices);
   return (
     <div className="mt-20 mb-20">
-      <h3 className="text-3xl  text-primary">Our Services</h3>
-      <h3 className="lg:text-5xl text-3xl text-dark">Services We Provide</h3>
+      <h3 className="text-3xl text-primary text-center">Our Services</h3>
+      <h3 className="lg:text-5xl text-3xl text-dark text-center">
+        Services We Provide
+      </h3>
 
       <div className="mt-8 px-12 grid lg:grid-cols-3 grid-cols-1 gap-5">
         {services.map((service) => (
