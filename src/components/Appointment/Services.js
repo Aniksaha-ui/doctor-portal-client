@@ -30,7 +30,7 @@ const Services = () => {
                   class="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary"
                   disabled={service.slots.length === 0}
                 >
-                  Book Now
+                  Book Noww
                 </button>
               </div>
             </div>
