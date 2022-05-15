@@ -3,15 +3,17 @@ import React, { useContext } from "react";
 import PrimaryButton from "../Shared/PrimaryButton";
 import { updatedServiceContext } from "./AvailableAppointment";
 
-const Services = () => {
+const Services = ({ setTreatement }) => {
   const [services] = useContext(updatedServiceContext);
   return (
     <>
       {services.map((service) => {
         return (
-          <div class="card lg:max-w-lg shadow-xl mt-10">
-            <div class="card-body p-5">
-              <h2 class="text-center text-3xl text-primary">{service.name}</h2>
+          <div className="card lg:max-w-lg shadow-xl mt-10">
+            <div className="card-body p-5">
+              <h2 className="text-center text-3xl text-primary">
+                {service.name}
+              </h2>
               <p className="text-xl text-center">
                 {service.slots.length > 0 ? (
                   service.slots[0]
@@ -25,13 +27,15 @@ const Services = () => {
                 available
               </p>
               <br />
-              <div class="card-actions justify-center">
-                <button
-                  class="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary"
+              <div className="card-actions justify-center">
+                <label
+                  for="booking-modal"
+                  onClick={() => setTreatement(service)}
+                  className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary"
                   disabled={service.slots.length === 0}
                 >
                   Book Noww
-                </button>
+                </label>
               </div>
             </div>
           </div>

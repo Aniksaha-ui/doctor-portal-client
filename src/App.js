@@ -3,6 +3,9 @@ import "./App.css";
 import About from "./components/About/About";
 import Appointment from "./components/Appointment/Appointment";
 import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Navbar from "./components/Shared/Navbar";
 
 function App() {
@@ -12,7 +15,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/appointment" element={<Appointment />}></Route>
+        <Route
+          path="/appointment"
+          element={
+            <RequireAuth>
+              <Appointment />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
       {/* <Footer /> */}
     </div>

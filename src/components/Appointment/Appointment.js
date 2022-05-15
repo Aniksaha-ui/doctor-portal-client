@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { ToastContainer } from "react-toastify";
 import AppointmentBanner from "./AppointmentBanner";
 import AvailableAppointment from "./AvailableAppointment";
 
@@ -14,6 +15,7 @@ const Appointment = () => {
       <div>
         <AppointmentBanner />
         <AvailableAppointment />
+        <ToastContainer />
       </div>
     </UpdatedContext.Provider>
   );
