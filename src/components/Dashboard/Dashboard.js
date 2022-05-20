@@ -23,6 +23,7 @@ const Dashboard = () => {
           </li>
           <li>
             <Link to="/dashboard/history">My History</Link>
+            <Link to="/dashboard/users">All Users</Link>
           </li>
         </ul>
       </div>

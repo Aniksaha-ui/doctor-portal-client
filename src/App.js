@@ -5,6 +5,7 @@ import Appointment from "./components/Appointment/Appointment";
 import Dashboard from "./components/Dashboard/Dashboard";
 import MyAppointment from "./components/Dashboard/MyAppointment";
 import MyReview from "./components/Dashboard/MyReview";
+import Users from "./components/Dashboard/Users";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -26,6 +27,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        {/* nasted routing */}
         <Route
           path="dashboard"
           element={
@@ -36,7 +38,9 @@ function App() {
         >
           <Route index element={<MyAppointment />}></Route>
           <Route path="review" element={<MyReview />}></Route>
+          <Route path="users" element={<Users />}></Route>
         </Route>
+        {/* nasted routing */}
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
