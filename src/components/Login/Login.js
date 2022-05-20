@@ -10,48 +10,52 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Shared/Loading";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
-    useSignInWithGoogle(auth);
-
-  const handleGoogleLogin = () => {
-    signInWithGoogle();
-  };
-
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [token] = useToken(user || gUser);
+
+  let signInError;
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
+
+  if (loading || gLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (error || gError) {
+    signInError = (
+      <p className="text-red-500">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-
-  if (user || googleUser) {
-    navigate(from, { replace: true });
-  }
-
-  if (loading || googleLoading) {
-    return <Loading></Loading>;
-  }
-
-  if (error?.message || googleError?.message) {
-    toast(error.message);
-  }
-
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl">Login</h2>
+          <h2 className="text-center text-2xl font-bold">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -118,6 +122,7 @@ const Login = () => {
               </label>
             </div>
 
+            {signInError}
             <input
               className="btn w-full max-w-xs text-white"
               type="submit"
@@ -126,18 +131,19 @@ const Login = () => {
           </form>
           <p>
             <small>
-              New to Doctor Portal
-              <Link className="text-secondary" to="/register">
+              New to Doctors Portal{" "}
+              <Link className="text-primary" to="/signup">
                 Create New Account
               </Link>
             </small>
           </p>
           <div className="divider">OR</div>
-          <button onClick={handleGoogleLogin} className="btn btn-outline">
+          <button
+            onClick={() => signInWithGoogle()}
+            className="btn btn-outline"
+          >
             Continue with Google
           </button>
-
-          <ToastContainer />
         </div>
       </div>
     </div>

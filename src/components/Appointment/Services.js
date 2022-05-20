@@ -1,10 +1,8 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 import React, { useContext } from "react";
 import PrimaryButton from "../Shared/PrimaryButton";
-import { updatedServiceContext } from "./AvailableAppointment";
 
-const Services = ({ setTreatement }) => {
-  const [services] = useContext(updatedServiceContext);
+const Services = ({ setTreatement, services }) => {
   return (
     <>
       {services.map((service) => {
