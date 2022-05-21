@@ -10,6 +10,7 @@ import Users from "./components/Dashboard/Users";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Navbar from "./components/Shared/Navbar";
 
@@ -39,7 +40,14 @@ function App() {
         >
           <Route index element={<MyAppointment />}></Route>
           <Route path="review" element={<MyReview />}></Route>
-          <Route path="users" element={<Users />}></Route>
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <Users />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         {/* nasted routing */}
 
